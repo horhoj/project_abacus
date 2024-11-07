@@ -4,11 +4,12 @@ import styles from './Button.module.scss';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
+  isActive?: boolean;
 }
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({ children, className, ...props }, ref) => {
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({ isActive, children, className, ...props }, ref) => {
   return (
-    <button {...props} className={classNames(styles.Button, className)} ref={ref}>
+    <button {...props} className={classNames(styles.Button, className, isActive && styles.isActive)} ref={ref}>
       {children}
     </button>
   );

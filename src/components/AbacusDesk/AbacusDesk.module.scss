@@ -1,0 +1,45 @@
+.AbacusDesk {
+  display: flex;
+
+}
+
+.lineWrapper {
+  position: relative;
+}
+
+.line {
+
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  justify-content: space-between;
+  height: 100%;
+  padding: 50% 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.lineUp {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.lineDown {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.lineBone {
+  display: block;
+}
+
+.lineSkin {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
