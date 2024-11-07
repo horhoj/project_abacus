@@ -1,0 +1,26 @@
+.AbacusDeskItem {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn {
+  border: none;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
+
+  &>img {
+    -webkit-user-drag: none;
+
+  }
+}

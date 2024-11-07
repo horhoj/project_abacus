@@ -1,8 +1,9 @@
 import { useMemo } from 'react';
 import { AbacusLineSkin } from '../AbacusLineSkin';
+import { AbacusDeskItem } from '../AbacusDeskItem/AbacusDeskItem';
 import styles from './AbacusDesk.module.scss';
-import { getUUID } from '~/utils/getUUID';
 import { AbacusSkinType } from '~/types';
+import { makeArr } from '~/utils/makeArr';
 
 interface AbacusDeskProps {
   lines: number;
@@ -12,15 +13,8 @@ interface AbacusDeskProps {
   topCount: number;
 }
 
-const makeArr = (count: number) =>
-  Array(count)
-    .fill(null)
-    .map(() => getUUID());
-
 export function AbacusDesk({ bones, lines, boneSkin, lineSkin, topCount }: AbacusDeskProps) {
-  const bonesTopArr = useMemo(() => makeArr(topCount), [bones, topCount]);
-  const bonesTopDown = useMemo(() => makeArr(bones - topCount), [bones, topCount]);
-  const linesArr = useMemo(() => makeArr(lines), [lines]);
+  const linesArr = useMemo(() => makeArr(lines), [lines, topCount, bones]);
 
   return (
     <div className={styles.AbacusDesk}>
@@ -29,14 +23,10 @@ export function AbacusDesk({ bones, lines, boneSkin, lineSkin, topCount }: Abacu
           <AbacusLineSkin variant={lineSkin} topCount={topCount} />
           <div className={styles.line}>
             <div className={styles.lineUp}>
-              {bonesTopArr.map((el) => (
-                <img key={el} src={boneSkin} className={styles.lineBone} />
-              ))}
+              <AbacusDeskItem boneSkin={boneSkin} count={topCount} />
             </div>
             <div className={styles.lineDown}>
-              {bonesTopDown.map((el) => (
-                <img key={el} src={boneSkin} className={styles.lineBone} />
-              ))}
+              <AbacusDeskItem boneSkin={boneSkin} count={bones - topCount} />
             </div>
           </div>
         </div>

@@ -13,7 +13,7 @@ export function AbacusLineSkin({ variant, topCount }: AbacusLineSkinProps) {
         <div className={classNames(styles.topLine, styles[variant])} />
         <div className={classNames(styles.bottomLine, styles[variant])} />
         <div className={classNames(styles.centerLine, styles[variant])} />
-        <div className={classNames(styles.divider, styles[variant])} style={{ top: `${topCount * 36 + 60}px` }} />
+        <div className={classNames(styles.divider, styles[variant])} style={{ top: `${topCount * 36 + 120}px` }} />
       </div>
     </div>
   );

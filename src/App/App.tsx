@@ -11,9 +11,9 @@ import { InputCounter } from '~/ui/InputCounter';
 export function App() {
   const [lineSkin, setLineSkin] = useState<AbacusSkinType>('graySkin');
   const [boneSkin, setBoneSkin] = useState(boneSkin1);
-  const [bones, setBones] = useState(5);
+  const [bones, setBones] = useState(10);
   const [lines, setLines] = useState(10);
-  const [topCount, setTopCount] = useState(2);
+  const [topCount, setTopCount] = useState(8);
 
   const handleChangeBones = (value: number) => {
     const actualValue = value;
