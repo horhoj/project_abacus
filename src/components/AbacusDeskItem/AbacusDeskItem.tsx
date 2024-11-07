@@ -19,7 +19,7 @@ export function AbacusDeskItem({ boneSkin, count }: AbacusDeskItemProps) {
       <div className={styles.top}>
         {bonesTopArr.map((el, i) => (
           <button key={el} onClick={() => setValue(i)} className={styles.btn}>
-            <img key={el} src={boneSkin} className={styles.lineBone} />
+            <img key={el} src={boneSkin} className={styles.lineBone} draggable={false} />
           </button>
         ))}
       </div>
@@ -27,7 +27,7 @@ export function AbacusDeskItem({ boneSkin, count }: AbacusDeskItemProps) {
       <div className={styles.bottom}>
         {bonesBottomArr.map((el, i) => (
           <button key={el} onClick={() => setValue(i + value + 1)} className={styles.btn}>
-            <img key={el} src={boneSkin} className={styles.lineBone} />
+            <img key={el} src={boneSkin} className={styles.lineBone} draggable={false} />
           </button>
         ))}
       </div>
