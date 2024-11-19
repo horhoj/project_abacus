@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   padding: 0 0 50px 0;
-
+  gap: 5px;
 }
 
 .top {
@@ -21,9 +21,13 @@
   background-color: rgba(0, 0, 0, 0);
   transition: transform 200ms;
   color: #fff;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
 
   &>img {
     -webkit-user-drag: none;
+  //border: 1px solid red;
 
   }
 }
