@@ -8,29 +8,23 @@ interface AbacusDeskItemProps {
 }
 
 export function AbacusDeskItem({ boneSkin, count }: AbacusDeskItemProps) {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(-1);
 
-  const bonesTopArr = useMemo(() => makeArr(value), [value, count]);
-
-  const bonesBottomArr = useMemo(() => makeArr(count - value), [value, count]);
+  const bonesArr = useMemo(() => makeArr(count), [count]);
 
   return (
     <div className={styles.AbacusDeskItem}>
-      <div className={styles.top}>
-        {bonesTopArr.map((el, i) => (
-          <button key={el} onClick={() => setValue(i)} className={styles.btn}>
-            <img key={el} src={boneSkin} className={styles.lineBone} draggable={false} />
-          </button>
-        ))}
-      </div>
-
-      <div className={styles.bottom}>
-        {bonesBottomArr.map((el, i) => (
-          <button key={el} onClick={() => setValue(i + value + 1)} className={styles.btn}>
-            <img key={el} src={boneSkin} className={styles.lineBone} draggable={false} />
-          </button>
-        ))}
-      </div>
+      {bonesArr.map((id, i) => (
+        <button
+          key={id}
+          className={styles.btn}
+          tabIndex={-1}
+          onClick={() => setValue((prev) => (i > prev ? i : i - 1))}
+          style={{ transform: `translateY(${i > value ? 50 : 0}px)` }}
+        >
+          <img src={boneSkin} alt="bone" />
+        </button>
+      ))}
     </div>
   );
 }

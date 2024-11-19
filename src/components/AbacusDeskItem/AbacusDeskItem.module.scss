@@ -1,7 +1,8 @@
 .AbacusDeskItem {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  padding: 0 0 50px 0;
+
 }
 
 .top {
@@ -18,9 +19,12 @@
   border: none;
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0);
+  transition: transform 200ms;
+  color: #fff;
 
   &>img {
     -webkit-user-drag: none;
 
   }
 }
+
